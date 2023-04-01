@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>beeptest</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Beeptest v1</h1>
+
+    <!--navodila-->
+    <h2>Navodila:</h2>
+    <p style="margin-top: 6px;">Lahko se si igras melodije s tem da spreminjes <code>visino tona</code> in ga zaigras z <code>Enter</code>, lahko pa si enostavno zaigras eno od ze ze narejenih "pesmi" iz menija <code>pesem</code>, lahko pa uporabis tudi kasno dodatno nastavitev.</p>
+
+    <h2>Ta zabavno:</h2>
+
+    <!--offset-->
+    <div class="form">
+      <b>Visina tona</b>
+      <input type="range" min="-24" max="24" value = 0 id="offset" class="slider" oninput="document.getElementById('offset-mon').innerHTML = document.getElementById('offset').value">
+      <p class="monitor">odmik od a4 (v poltonih): <span id="offset-mon">0</span></p>
+    </div>
+
+    <!--zaigraj!-->
+    <button onclick="callBeep()">Zaigraj mi!</button>
+
+    <!--izbira skladbe-->
+    <div class="form">
+      <b>Pesem</b>
+      <select id="pesem">
+        <option value="pi" selected>π</option>
+        <option value="korenZDva">koren 2</option>
+        <option value="enaDeljenoSedem">1/7</option>
+        <option value="enaDeljenoEnajst">1/11</option>
+        <option value="enaDeljenoDvanajst">1/12</option>
+      </select>
+    </div>
+
+    <!--zaigarj skladbo!-->
+    <button onclick="callPlaySong()">Zaigraj mi celo pesem!</button>
+
+    <h2>Nastavitve:</h2>
+  
+    <!--izbiranje lestvice-->
+    <div class="form">
+      <b>Lestvica</b>
+      <select id="lestvica">
+        <option value="kromatika" selected>kromatika</option>
+        <option value="celiToni">celi toni</option>
+        <option value="pentatonika">pentatonika</option>
+      </select>
+    </div>
+
+    <!--dolzina-->
+    <div class="form">
+      <b>Dolzina tona</b>
+      <input type="range" min="100" max="3000" value = 500 id="duration" class="slider" oninput="document.getElementById('duration-mon').innerHTML = document.getElementById('duration').value">
+      <p class="monitor">dolzina tona: <span id="duration-mon">500</span> milliseconds</p>
+    </div>
+
+    <!--glasnost-->
+    <div class="form">
+      <b>Glasnost</b>
+      <input type="range" min="0" max="1" value = 0.1 step = 0.01 id="volume" class="slider" oninput="document.getElementById('volume-mon').innerHTML = document.getElementById('volume').value">
+      <p class="monitor">glasnost: <span id="volume-mon">0.10</span></p>
+    </div>
+
+    <!--tip zvoka-->
+    <div class="form">
+      <b>Tip zvoka</b>
+      <select id="type">
+        <option value="sine">sine</option>
+        <option value="square" selected>square</option>
+        <option value="sawtooth">sawtooth</option>
+        <option value="triangle">triangle</option>
+      </select>
+    </div>
+  </body>
+</html>
