@@ -6,15 +6,29 @@ body {
   padding: 0 20px 0 20px;
 }
 
-.form {
-  margin: 10px 0 10px 0;
-  padding: 5px;
-  border: solid black 1px;
+.naslov {
+  margin-bottom: 0;
+  font-family: 'Press Start 2P', cursive;
 }
 
-.monitor {
-  padding: 0;
-  margin: 2px 0 2px 0;
+h2 {
+  margin-bottom: 1px;
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+button, select, .form {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+p {
+  font-family: 'Ubuntu Mono', monospace;
+}
+
+.form {
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  border: solid black 1px;
+  border-radius: 10px;
 }
 
 .form b {
@@ -22,11 +36,23 @@ body {
   text-transform: uppercase;
 }
 
+[important] {
+  background-color: lavenderblush;
+}
+
+.monitor {
+  padding: 0;
+  margin: 2px 0 2px 0;
+}
+
 .spacer {
   height: 50px;
   width: 100%;
 }
 
-h2 {
-  margin-bottom: 1px;
+code {
+  background-color: #0075ff;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
 }
