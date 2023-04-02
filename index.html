@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>beeptest</title>
+    <title>Beeptest</title>
     <meta charset="utf-8">
+    <meta name="viewport">
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!--favicon-->
     <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+    <!--stylesheet-->
     <link rel="stylesheet" href="style.css">
+    <!--script-->
     <script src="script.js"></script>
   </head>
   <body>
-    <h1>Beeptest v1 <img src="favicon.png" alt="logo" style="height: 30px;"></h1>
+    <h1 class="naslov">Beeptest v1 <img src="favicon.png" alt="logo" style="height: 30px;"></h1>
 
     <!--navodila-->
-    <h2>Navodila:</h2>
-    <p style="margin-top: 6px;">Lahko se si igras melodije s tem da spreminjes <code>visino tona</code> in ga zaigras z <code>Enter</code>, lahko pa si enostavno zaigras eno od ze ze narejenih "pesmi" iz menija <code>pesem</code>, lahko pa uporabis tudi kasno dodatno nastavitev.</p>
+    <p style="margin-top: 6px;">Lahko si igras melodije s tem, da spreminjas <code>visino tona</code> in ga zaigras z <code>Enter</code>. Lahko pa si enostavno zaigras eno od ze narejenih "melodij" iz menija <code>pesmi</code>. Uporabis pa lahko tudi katero izmed dodatnih nastavitev. 😜</p>
 
     <h2>Ta zabavno:</h2>
 
     <!--offset-->
-    <div class="form">
+    <div class="form" important>
       <b>Visina tona</b>
       <input type="range" min="-24" max="24" value = 0 id="offset" class="slider" oninput="document.getElementById('offset-mon').innerHTML = document.getElementById('offset').value">
       <p class="monitor">odmik od a4 (v poltonih): <span id="offset-mon">0</span></p>
@@ -27,10 +34,10 @@
     <button onclick="callBeep()">Zaigraj mi!</button>
 
     <!--izbira skladbe-->
-    <div class="form">
+    <div class="form" important>
       <b>Pesem</b>
       <select id="pesem">
-        <option value="pi" selected>π</option>
+        <option value="pi" selected>pi</option>
         <option value="korenZDva">koren 2</option>
         <option value="enaDeljenoSedem">1/7</option>
         <option value="enaDeljenoEnajst">1/11</option>
@@ -38,8 +45,10 @@
       </select>
     </div>
 
-    <!--zaigarj skladbo!-->
+    <!--zaigraj skladbo!-->
     <button onclick="callPlaySong()">Zaigraj mi celo pesem!</button>
+    <!--ustavi-->
+    <button onclick="abort()" id="abort" style="visibility: hidden;">Ustavi!</button>
 
     <h2>Nastavitve:</h2>
   

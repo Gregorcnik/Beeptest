@@ -17,6 +17,8 @@ pesmi.set("enaDeljenoDvanajst", "0083333333333333333333333333333");
 const ritmi = new Map();
 ritmi.set("ritem1", [1000, 333, 333, 333, 1000, 333, 666]);
 
+let playing = false;
+
 // ====================
 // ta prav zacetek
 
@@ -95,16 +97,27 @@ function callBeep () {
 };
 
 function callPlaySong () {
-  let song = pesmi.get(document.getElementById("pesem").value);
-  let lestvica = lestvice.get(document.getElementById("lestvica").value);
-  playNotes(song, lestvica, [250], 0);
-}
+  if (!playing) {
+    let song = pesmi.get(document.getElementById("pesem").value);
+    let lestvica = lestvice.get(document.getElementById("lestvica").value);
+    playing = true;
+    document.getElementById("abort").style = "visibility: visible;";
+    playNotes(song, lestvica, [250], 0);
+  } else {
+    alert("Nekaj se ze predvaja! 🔊")
+  }
+};
+
+function abort () {
+  playing = false;
+  document.getElementById("abort").style = "visibility: hidden;";
+};
 
 function playNotes (song, lestvica, ritem, index) {
   // console.log(song, lestvica, ritem, ritem.length, index);
   beep(ritem[index%(ritem.length)], toneToHertz(poLestvici(lestvica, song[index])), document.getElementById("volume").value, document.getElementById("type").value);
   setTimeout (function() {
-    if (index < song.length-1) {
+    if (index < song.length-1 && playing === true) {
       playNotes(song, lestvica, ritem, index+1);
     }
   }, ritem[index%ritem.length])
