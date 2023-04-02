@@ -119,6 +119,8 @@ function playNotes (song, lestvica, ritem, index) {
   setTimeout (function() {
     if (index < song.length-1 && playing === true) {
       playNotes(song, lestvica, ritem, index+1);
+    } else if (index === song.length-1) {
+      abort();
     }
   }, ritem[index%ritem.length])
 };
